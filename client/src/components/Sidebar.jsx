@@ -8,7 +8,7 @@ const Sidebar = ({ sidebarToggle }) => {
         data-testid="sidebar"
         className={` ${
           sidebarToggle ? "hidden" : "block"
-        } w-64 bg-yankeesBlue  fixed h-full pt-8`}
+        } w-64 bg-yankeesBlue  fixed h-full pt-8 rounded-r-3xl `}
       >
         <div>
           <ul className="flex flex-col items-center gap-y-16">

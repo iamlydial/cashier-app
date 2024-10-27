@@ -18,12 +18,12 @@ function App() {
         </div>
 
         {/* Central Section */}
-        <div className="w-4/6 bg-white border">
+        <div className="w-4/6 bg-white border rounded-t-3xl rounded-r-3xl">
           <CentralSection />
         </div>
 
         {/* Cashier Section */}
-        <div className="w-1/4 bg-gray-200 border">
+        <div className="w-1/4 bg-gray-200 border rounded-r-3xl">
           <CashierSection />
         </div>
       </div>

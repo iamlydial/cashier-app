@@ -1,7 +1,7 @@
 import React from "react";
 import { describe, it } from "vitest";
 import { render, screen } from "@testing-library/react";
-import { TopBar } from "./TopBar"; 
+import { TopBar } from "../TopBar"; 
 import { expect } from "vitest";
 
 describe("TopBar", () => {

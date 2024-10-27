@@ -1,14 +1,10 @@
-import DashboardLayout from "../assets/DashboardLayout.svg";
-import HistoryIcon from "../assets/PaymentHistory.svg";
-import PromosIcon from "../assets/Discount.svg";
-import MenuIcon from "../assets/RestaurantMenu.svg";
+// import AllProducts from "../assets/AllProducts.svg";
+import CoffeeIcon from "../assets/Cafe.svg";
+import TeaIcon from "../assets/Tea.svg";
+import Fruits from "../assets/Fruits.svg";
 
-export const menuItems = [
-  {
-    id: "all",
-    label: "All Products",
-    icon: DashboardLayout,
-  },
+export const categoryItems = [
+
   {
     id: "coffes",
     label: "Coffes",

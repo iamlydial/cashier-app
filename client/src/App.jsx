@@ -13,7 +13,7 @@ function App() {
       <TopBar />
       <div className="flex flex-row h-full">
         {/* Sidebar */}
-        <div className="w-2/12">
+        <div className="hidden md:flex w-2/12">
           <Sidebar />
         </div>
 

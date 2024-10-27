@@ -12,6 +12,8 @@ export default {
       eerieBlack: "#1D1D1D",
       persianRed: "#CF2E2E",
       littleGirlPink: "#F8BED4",
+      lightSilver: "#d9d9d9",
+      white: "#ffffff",
     },
     fontFamily: {
       sans: ["DM Sans", "sans-serif"],

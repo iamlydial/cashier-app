@@ -5,7 +5,7 @@ const ProductCard = () => {
   return (
     <div
       data-testid="product"
-      className=" flex flex-col w-4/12 bg-lightSilver rounded-3xl h-auto p-4 gap-y-4"
+      className=" flex flex-col w-full bg-lightSilver rounded-3xl h-auto p-4 gap-y-4"
     >
       <img data-testid="product-image" src={Coffee} alt="" />
       <div className="flex flex-row w-full justify-between">

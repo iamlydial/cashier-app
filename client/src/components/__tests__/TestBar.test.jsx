@@ -4,8 +4,8 @@ import { render, screen } from "@testing-library/react";
 import { TopBar } from "../TopBar"; 
 import { expect } from "vitest";
 
-describe("TopBar", () => {
-  it("it renders top bar with all components", () => {
+describe("ProductCard", () => {
+  it("it renders ProductCard with all components", () => {
     render(<TopBar />);
     screen.debug(); 
     const topBarElement = screen.getByTestId("topbar");

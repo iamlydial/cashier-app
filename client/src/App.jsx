@@ -13,17 +13,17 @@ function App() {
       <TopBar />
       <div className="flex flex-row h-full">
         {/* Sidebar */}
-        <div className="w-1/12 bg-yankeesBlue">
+        <div className="w-2/12">
           <Sidebar />
         </div>
 
         {/* Central Section */}
-        <div className="w-4/6 bg-white border rounded-t-3xl rounded-r-3xl">
+        <div className="w-10/12 bg-white border  rounded-r-3xl">
           <CentralSection />
         </div>
 
         {/* Cashier Section */}
-        <div className="w-1/4 bg-gray-200 border rounded-r-3xl">
+        <div className="w-4/12 bg-gray-200 border rounded-r-3xl">
           <CashierSection />
         </div>
       </div>

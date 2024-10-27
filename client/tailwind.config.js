@@ -3,7 +3,7 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     colors: {
-      celticBlue: "#295CD6",
+      'celticBlue': "#295CD6",
       'cornflowerBlue': "#698FEA",
       'arylideYellow': "#ECCD6B",
       'yankeesBlue': "#202B46",
@@ -13,7 +13,8 @@ export default {
       'persianRed': "#CF2E2E",
       'littleGirlPink':'#F8BED4'
     },
-    fontFamily: {},
+    fontFamily: {
+    },
     extend: {},
   },
   plugins: [],

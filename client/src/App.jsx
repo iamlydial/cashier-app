@@ -11,7 +11,7 @@ function App() {
   return (
     <>
       <TopBar />
-      <div className="flex flex-row h-screen">
+      <div className="flex flex-row h-full">
         {/* Sidebar */}
         <div className="w-1/12 bg-yankeesBlue">
           <Sidebar />
@@ -23,7 +23,7 @@ function App() {
         </div>
 
         {/* Cashier Section */}
-        <div className="w-2/4 bg-gray-200 border">
+        <div className="w-1/4 bg-gray-200 border">
           <CashierSection />
         </div>
       </div>

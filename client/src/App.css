@@ -1,6 +1,15 @@
+/* App.css */
+html,
+body {
+  height: 100%; /* Ensure html and body take full height */
+  margin: 0; /* Remove default margin */
+  overflow: hidden; /* Prevent scrolling */
+}
+
 #root {
   width: 100%;
   max-width: 1920px;
+  height: 100vh; /* Use full height of the viewport */
   margin: 0 auto;
   text-align: center;
 }

@@ -10,14 +10,14 @@ export const TopBar = () => {
       data-testid="topbar"
       className="flex justify-center items-center bg-cornflowerBlue h-20 p-4"
     >
-      <div className="flex justify-between items-center flex-row w-11/12">
+      <div className="flex justify-between items-center flex-row w-full md:w-11/12">
         <img
           data-testid="perk-bar-icon"
           src={CentralPerk}
           height="80px"
           width="80px"
         />
-        <div className="flex bg-lightSilver opacity-50 h-12 items-center rounded-lg p-2 w-full max-w-sm">
+        <div className="flex bg-lightSilver opacity-50 h-12 items-center rounded-lg p-2 md:w-full max-w-sm">
           <img src={Search} alt="Search Icon" className="h-10 w-10 mr-2" />
           <input
             type="text"
@@ -31,7 +31,7 @@ export const TopBar = () => {
           <img data-testid="checkout-icon" src={Checkout} className="h-8 w-8" />
         </div>
 
-        <div className="bg-lightSilver flex items-center justify-between rounded-full h-12 w-28 p-1">
+        <div className="bg-lightSilver  hidden md:flex items-center justify-between rounded-full h-12 w-28 p-1">
           <img
             src={User}
             data-testid="user-icon"

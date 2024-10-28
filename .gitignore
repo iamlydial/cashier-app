@@ -128,3 +128,23 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+# Rails specific files to ignore
+server/db/*.sqlite3
+server/db/*.development.sqlite3
+server/db/*.test.sqlite3
+server/log/*
+server/tmp/*
+server/storage/*
+server/public/system/*
+server/public/uploads/*
+server/node_modules/
+*.swp
+*.swo
+*.DS_Store
+server/public/packs/*
+server/public/packs-test/*
+server/public/assets/*
+server/vendor/bundle/*
+server/vendor/cache/*
+server/vendor/gems/*

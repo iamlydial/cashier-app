@@ -1,0 +1,27 @@
+# PostgreSQL. Versions 9.3 and up are supported.
+
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  # Host and port are specified only if needed; you can uncomment if necessary
+  #host: localhost
+  #port: 5432
+
+development:
+  <<: *default
+  database: cashier_development # Unique database for development
+  username: iamlydial # Specify your PostgreSQL username here
+  password: <%= ENV["SERVER_DATABASE_PASSWORD"] %>
+
+test:
+  <<: *default
+  database: cashier_test # Unique database for testing
+  username: iamlydial # Specify your PostgreSQL username here
+  password: <%= ENV["SERVER_DATABASE_PASSWORD"] %>
+
+production:
+  <<: *default
+  database: cashier_production # Unique database for production
+  username: server # Update this if your production username is different
+  password: <%= ENV["SERVER_DATABASE_PASSWORD"] %>

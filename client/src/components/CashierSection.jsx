@@ -1,19 +1,63 @@
 import React from "react";
+import { paymentItems } from "../constants/paymentConstants.js";
+import Promo from "../assets/Discount.svg";
 
 const CashierSection = () => {
   return (
     <div className="flex justify-center items-center bg-yankeesBlue h-full rounded-r-3xl px-4">
-      <div className="flex flex-col items-center w-full h-3/4 bg-white rounded-3xl ">
-        <div>ddd</div>
-        <div>ddd</div>
-        <div className="flex flex-col  items-center w-full">
-          <p className="">Payment Methods</p>
-          <div>
-            
+      <div className="flex flex-col w-full h-3/4 bg-white rounded-3xl p-4">
+        <div className="flex flex-row w-full justify-between ">
+          <div className="flex flex-col items-start">
+            <p className="font-semibold text-lg">Coffee</p>
+            <p className="text-sm">Qty. 1</p>
           </div>
-          <button className="rounded-full w-10/12 bg-persianRed p-4 text-white uppercase">
-            Place Order
-          </button>
+          <div>
+            $11.33
+          </div>
+        </div>
+
+        <div className=" flex flex-col  mt-auto ">
+          <div className="h-auto pb-4">
+            <p className="flex font-semibold pb-2 text-xs text-eerieBlack">
+              Promo Applied:
+            </p>
+            <div className="flex flex-col items-stretch">
+              <div className="flex pb-2  border-b-2 border-eerieBlack">
+                <img src={Promo} alt="" className="h-8" />
+                <div className="flex items-center bg-arylideYellow h-4 p-2 rounded-full">
+                  <p className="text-xs font-semibold text-eerieBlack">
+                    BOGO50
+                  </p>
+                </div>
+
+                <p className="ml-auto">$50</p>
+              </div>
+              <div className="flex justify-between">
+                <p className="font-semibold text-eerieBlack">Total</p>
+                <p>$150</p>
+              </div>
+            </div>
+          </div>
+          <div className="flex gap-y-4 flex-col w-full">
+            <p className="flex text-eerieBlack font-semibold">
+              Payment Methods
+            </p>
+            <div className="flex  w-full justify-between gap-4">
+              {paymentItems.map((item, key) => (
+                <div
+                  className="flex justify-center h-12 w-3/12 bg-lightSilver rounded-2xl"
+                  key={item.id}
+                >
+                  <img src={item.icon} alt={item.label} />
+                </div>
+              ))}
+            </div>
+            <div className="w-full">
+              <button className="rounded-full w-full bg-persianRed p-4 text-white uppercase">
+                Place Order
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>

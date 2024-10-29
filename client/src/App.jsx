@@ -1,15 +1,16 @@
 import React from "react";
-import { useState } from "react";
 import "./App.css";
+import { Provider } from 'react-redux';
+import store from './redux/store';
 import { TopBar } from "./components/TopBar";
 import Sidebar from "./components/Sidebar";
-import CategorySection from "./components/centralSection/CategorySection";
-import CentralSection from "./components/centralSection/centralSection";
+import CentralSection from "./components/centralSection/CentralSection.jsx";
 import CashierSection from "./components/CashierSection";
 
 function App() {
   return (
     <>
+    <Provider store={store}>
       <TopBar />
       <div className="flex flex-row h-full">
         {/* Sidebar */}
@@ -27,6 +28,7 @@ function App() {
           <CashierSection />
         </div>
       </div>
+      </Provider>
     </>
   );
 }

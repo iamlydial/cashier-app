@@ -1,28 +1,23 @@
-import React, { useState } from "react";
-import { useDispatch } from 'react-redux';
+import React from "react";
+import { useDispatch, useSelector } from 'react-redux';
 import { addItem, removeItem } from '../../redux/reducers/cartReducer.js';
 import Coffee from "../../assets/product_images/coffee.png";
 
-const ProductCard = ({product}) => {
-const [quantity, setQuantity] = useState(0);
-const dispatch = useDispatch();
+const ProductCard = ({ product }) => {
+  const dispatch = useDispatch();
+  const quantity = useSelector(state =>
+    state.cart.items.find(item => item.id === product.id)?.quantity || 0
+  );
 
-const handleAdd = () =>{
-  const productWithQuantity = {
-    ...product,
-    quantity: quantity,
+  const handleAdd = () => {
+    dispatch(addItem(product));
   };
-  dispatch(addItem(productWithQuantity))
-}
 
-const handleRemove= () =>{
-  if(quantity >0){
-    setQuantity(quantity -1)
-  }
-  if (quantity === 1){
-    dispatch(removeItem(product))
-  }
-}
+  const handleRemove = () => {
+    if (quantity > 0) {
+      dispatch(removeItem(product));
+    }
+  };
 
   return (
     <div
@@ -41,27 +36,23 @@ const handleRemove= () =>{
           {product.name}
         </h2>
         <p data-testid="product-price" className="text-eerieBlack">
-        ${product.price}
+          ${product.price}
         </p>
       </div>
 
       {/* Hidden Overlay - Slides up on hover */}
       <div className="absolute bottom-0 left-0 right-0 bg-persianRed bg-opacity-75 text-white p-4 flex flex-col justify-center items-center space-y-2 opacity-0 hover:opacity-100 transition-opacity duration-300 h-full">
         <div className="flex flex-row w-6/12 h-10 items-center justify-between">
-        <button 
-         onClick={() => {
-          
-          handleRemove();}}
-        className="bg-white h-full w-10 hover:bg-persianRed-50 text-persianRed font-bold text-3xl flex justify-center items-center rounded-lg">
-          - 
+          <button 
+            onClick={handleRemove}
+            className="bg-white h-full w-10 hover:bg-persianRed-50 text-persianRed font-bold text-3xl flex justify-center items-center rounded-lg">
+            - 
           </button>
           <p className="font-3xl">{quantity}</p>
           <button
-           onClick={() => {
-            setQuantity(quantity + 1); 
-            handleAdd();}} 
-          className="bg-white h-full w-10 hover:bg-persianRed-50 text-persianRed font-bold text-3xl flex justify-center items-center rounded-lg">
-          +
+            onClick={handleAdd} 
+            className="bg-white h-full w-10 hover:bg-persianRed-50 text-persianRed font-bold text-3xl flex justify-center items-center rounded-lg">
+            +
           </button>
         </div>
       </div>

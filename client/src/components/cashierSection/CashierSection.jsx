@@ -2,13 +2,21 @@ import React, { useState } from "react";
 import { paymentItems } from "../../constants/paymentConstants.js";
 import Promo from "../../assets/Discount.svg";
 import CashieProductItem from "./CashierProductItem.jsx";
+import { useSelector } from "react-redux";
 
 const CashierSection = () => {
+  const cartItems = useSelector((state) => state.cart.items);
+
   return (
     <div className="flex justify-center items-center bg-yankeesBlue h-full rounded-r-3xl px-4">
       <div className="flex flex-col w-full h-3/4 bg-white rounded-3xl gap-4 p-4">
-      <CashieProductItem/>
-        
+        {cartItems.length === 0 ? (
+          <p>Your cart is empty.</p>
+        ) : (
+          cartItems.map((item) => (
+            <CashieProductItem key={item.id} product={item} />
+          ))
+        )}
 
         <div className=" flex flex-col  mt-auto ">
           <div className="h-auto pb-4">

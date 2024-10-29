@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { paymentItems } from "../../constants/paymentConstants.js";
 import Promo from "../../assets/Discount.svg";
 import CashieProductItem from "./CashierProductItem.jsx";

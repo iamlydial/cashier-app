@@ -1,19 +1,26 @@
 import React, { useState } from "react";
+import { useDispatch } from 'react-redux';
+import { addItem, removeItem } from '../../redux/reducers/cartReducer.js';
 import Coffee from "../../assets/product_images/coffee.png";
 
 const ProductCard = ({product}) => {
-const [quantity, setQuantity] = useState(1)
+const [quantity, setQuantity] = useState(1);
+const dispatch = useDispatch();
 
 const handleAdd = () =>{
   const productWithQuantity = {
     ...product,
     quantity: quantity,
   };
+  dispatch(addItem(productWithQuantity))
 }
 
 const handleRemove= () =>{
   if(quantity >0){
     setQuantity(quantity -1)
+  }
+  if (quantity === 1){
+    dispatch(removeItem(product))
   }
 }
 

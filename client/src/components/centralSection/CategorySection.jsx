@@ -1,21 +1,19 @@
 import React from "react";
-import { categoryItems } from "../../constants/categoryConstants";
+// import { categoryItems } from "../../constants/categoryConstants";
 
-const CategorySection = () => {
+const CategorySection = ({category}) => {
   return (
-    <div className="flex flex-grow gap-4">
-      {/* Parent container to wrap all items */}
-      {categoryItems.map((item, index) => (
+    <div className="flex flex-grow gap-4"> 
         <div
-          key={index}
-          className="flex rounded-3xl flex-col w-2/12 bg-lightSilver p-4"
+          key={category.id}
+          className="flex rounded-3xl flex-col w-6/12 bg-lightSilver p-4"
         >
           <div className="flex flex-row items-center">
-            <img src={item.icon} alt={item.name} />
-            <p className="font-semibold">{item.label}</p>
+            {/* <img src={category.icon} alt={category.name} /> */}
+            <p className="font-semibold">{category.name}</p>
           </div>
         </div>
-      ))}
+     
     </div>
   );
 };

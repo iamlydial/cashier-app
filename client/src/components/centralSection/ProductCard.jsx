@@ -1,7 +1,7 @@
 import React from "react";
 import Coffee from "../../assets/product_images/coffee.png";
 
-const ProductCard = () => {
+const ProductCard = ({product}) => {
   return (
     <div
       data-testid="product"
@@ -16,10 +16,10 @@ const ProductCard = () => {
           data-testid="product-title"
           className="text-eerieBlack font-semibold"
         >
-          Coffee
+          {product.name}
         </h2>
         <p data-testid="product-price" className="text-eerieBlack">
-          $11.33
+        ${product.price}
         </p>
       </div>
 

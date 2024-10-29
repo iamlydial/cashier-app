@@ -17,18 +17,18 @@ describe("CentralSection", () => {
 
   it("render products from server API V1", async() =>{
     const mockProducts = [
-      { id: 1, name: "Coffee", price: 11.33, imageUrl: "coffee.png" },
-      { id: 2, name: "Green Tea", price: 8.99, imageUrl: "tea.png" },
+      { id: 1, name: "Coffee", price: 11.33 },
+      { id: 2, name: "Green Tea", price: 8.99},
     ];
 
     fetch.mockResolvedValueOnce({
       ok: true,
-      json: async ()=> mockProducts
+      json: async ()=> mockProducts,
     })
     render(<CentralSection />);
     await waitFor(() => {
       expect(screen.getByText("Coffee")).toBeInTheDocument();
-      expect(screen.getByText("Tea")).toBeInTheDocument();
+      expect(screen.getByText("Green Tea")).toBeInTheDocument();
     });
   })
 

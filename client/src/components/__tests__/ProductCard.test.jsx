@@ -6,7 +6,8 @@ import ProductCard from "../centralSection/ProductCard";
 
 describe("product", () => {
   it("it renders top bar with all components", () => {
-    render(<ProductCard />);
+    const mockProduct = { name: "Coffee", price: 11.33 };
+    render(<ProductCard product={mockProduct} />);
     screen.debug();
     const productElement = screen.getByTestId("product");
     expect(productElement).toBeInTheDocument();

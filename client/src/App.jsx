@@ -5,7 +5,7 @@ import store from './redux/store';
 import { TopBar } from "./components/TopBar";
 import Sidebar from "./components/Sidebar";
 import CentralSection from "./components/centralSection/CentralSection.jsx";
-import CashierSection from "./components/CashierSection";
+import CashierSection from "./components/cashierSection/CashierSection.jsx";
 
 function App() {
   return (

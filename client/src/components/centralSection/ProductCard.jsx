@@ -4,7 +4,7 @@ import { addItem, removeItem } from '../../redux/reducers/cartReducer.js';
 import Coffee from "../../assets/product_images/coffee.png";
 
 const ProductCard = ({product}) => {
-const [quantity, setQuantity] = useState(1);
+const [quantity, setQuantity] = useState(0);
 const dispatch = useDispatch();
 
 const handleAdd = () =>{

@@ -1,20 +1,14 @@
 import React from "react";
-import { paymentItems } from "../constants/paymentConstants.js";
-import Promo from "../assets/Discount.svg";
+import { paymentItems } from "../../constants/paymentConstants.js";
+import Promo from "../../assets/Discount.svg";
+import CashieProductItem from "./CashierProductItem.jsx";
 
 const CashierSection = () => {
   return (
     <div className="flex justify-center items-center bg-yankeesBlue h-full rounded-r-3xl px-4">
-      <div className="flex flex-col w-full h-3/4 bg-white rounded-3xl p-4">
-        <div className="flex flex-row w-full justify-between ">
-          <div className="flex flex-col items-start">
-            <p className="font-semibold text-lg">Coffee</p>
-            <p className="text-sm">Qty. 1</p>
-          </div>
-          <div>
-            $11.33
-          </div>
-        </div>
+      <div className="flex flex-col w-full h-3/4 bg-white rounded-3xl gap-4 p-4">
+      <CashieProductItem/>
+        
 
         <div className=" flex flex-col  mt-auto ">
           <div className="h-auto pb-4">

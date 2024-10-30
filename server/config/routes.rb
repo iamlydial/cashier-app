@@ -15,6 +15,7 @@ Rails.application.routes.draw do
       resources :order_items
       
       post 'checkout', to: 'checkout#create'
+      post 'checkout/calculate_price', to: 'checkout#calculate_price'
     end
   end
 end

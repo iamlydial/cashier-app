@@ -57,7 +57,7 @@ function App() {
         </div>
 
         {/* Central Section */}
-        <div className="w-10/12 bg-white border  rounded-r-3xl">
+        <div className="w-10/12 bg-white ">
           <CentralSection products={products} categories={categories} />
         </div>
 

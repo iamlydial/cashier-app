@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import CategorySection from "./CategorySection";
 import ProductCard from "./ProductCard";
 
 const CentralSection = ({products, categories }) => {
 
   return (
-    <div data-testid="centralSection" className="flex flex-col gap-10 p-8">
+    <div data-testid="centralSection" className=" h-full rounded-r-3xl flex flex-col gap-10 p-8">
       <div className="flex gap-4">
         {categories.map((category, id) => (
              <CategorySection key={category.id} category={category} />

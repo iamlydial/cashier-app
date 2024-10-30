@@ -2,6 +2,14 @@ import React from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { addItem, removeItem } from '../../redux/reducers/cartReducer.js';
 import Coffee from "../../assets/product_images/coffee.png";
+import GreenTea from "../../assets/product_images/green-tea.png";
+import Strawberry from "../../assets/product_images/strawberry.png";
+
+const productImages = {
+  GR1: GreenTea,
+  SR1: Strawberry,
+  CF1: Coffee,
+};
 
 const ProductCard = ({ product }) => {
   const dispatch = useDispatch();
@@ -25,7 +33,11 @@ const ProductCard = ({ product }) => {
       className="relative flex flex-col w-full bg-lightSilver rounded-3xl h-auto p-4 gap-y-4 overflow-hidden"
     >
       {/* Product Image */}
-      <img data-testid="product-image" src={Coffee} alt="Coffee" />
+      <img 
+        data-testid="product-image" 
+        src={productImages[product.code] || Coffee} 
+        alt={product.name} 
+      />
 
       {/* Product Info */}
       <div className="flex flex-row w-full justify-between">

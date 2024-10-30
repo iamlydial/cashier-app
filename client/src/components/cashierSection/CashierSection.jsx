@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { paymentItems } from "../../constants/paymentConstants.js";
 import Promo from "../../assets/Discount.svg";
 import CashieProductItem from "./CashierProductItem.jsx";
@@ -6,6 +6,40 @@ import { useSelector } from "react-redux";
 
 const CashierSection = () => {
   const cartItems = useSelector((state) => state.cart.items);
+  const [totalPrice, setTotalPrice] = useState(0);
+
+  useEffect(() => {
+    const fetchTotalPrice = async () => {
+      if (cartItems.length === 0) {
+        setTotalPrice(0);
+        return;
+      }
+
+      const filteredCartItems = cartItems.map(item => ({
+        product_code: item.code, 
+        quantity: item.quantity, 
+      }));
+
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/checkout`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ checkout: { cart_items: filteredCartItems } }),
+      });
+
+      console.log(response)
+
+      if(response.ok){
+        const data = await response.json();
+        console.log(data)
+        setTotalPrice(data.total_price)
+      } else {
+        console.log("Failed to fetch total price")
+      }
+    };
+    fetchTotalPrice()
+  }, [cartItems]);
 
   return (
     <div className="flex justify-center items-center bg-yankeesBlue h-full rounded-r-3xl px-4">
@@ -36,7 +70,7 @@ const CashierSection = () => {
               </div>
               <div className="flex justify-between">
                 <p className="font-semibold text-eerieBlack">Total</p>
-                <p>$150</p>
+                <p>${totalPrice}</p>
               </div>
             </div>
           </div>

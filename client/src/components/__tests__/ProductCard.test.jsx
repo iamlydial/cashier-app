@@ -3,11 +3,21 @@ import { describe, it } from "vitest";
 import { render, screen } from "@testing-library/react";
 import { expect } from "vitest";
 import ProductCard from "../centralSection/ProductCard";
+import store from '../../redux/store.js';
+import { Provider } from "react-redux";
+
 
 describe("product", () => {
-  it("it renders top bar with all components", () => {
-    const mockProduct = { name: "Coffee", price: 11.33 };
-    render(<ProductCard product={mockProduct} />);
+  it("it renders product with all components", () => {
+    const mockProduct = { id: "CF1", name: "Coffee", price: 11.33, code: "CF1" };
+    
+    
+    render(
+      <Provider store={store}>
+        <ProductCard product={mockProduct} />
+      </Provider>
+    );
+
     screen.debug();
     const productElement = screen.getByTestId("product");
     expect(productElement).toBeInTheDocument();

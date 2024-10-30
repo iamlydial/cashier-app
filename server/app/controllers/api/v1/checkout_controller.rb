@@ -49,6 +49,11 @@ class Api::V1::CheckoutController < ApplicationController
       if product
         quantity = item[:quantity].to_i
         item_price = product.apply_discount(quantity) * quantity
+        
+        # Check if the product ID is 4 and the quantity is even
+        if product.id == 4 && quantity.even?
+          item_price /= 2 # Halve the price if conditions are met
+        end
         total_price += item_price
 
         # Build OrderItem
@@ -65,21 +70,29 @@ class Api::V1::CheckoutController < ApplicationController
   def calculate_total_price(cart_items)
     total_price = 0
     errors = []
-
+  
     cart_items.each do |item|
       product = Product.find_by(code: item[:product_code])
-
+  
       if product
         quantity = item[:quantity].to_i
         item_price = product.apply_discount(quantity) * quantity
+        
+        # Check if the product ID is 4 and the quantity is even
+        if product.id == 4 && quantity.even?
+          item_price /= 2 # Halve the price if conditions are met
+        end
+  
         total_price += item_price
       else
         errors << "Product not found: #{item[:product_code]}"
       end
     end
+  
     total_price = total_price.round(2)
     [total_price, errors]
   end
+  
 
   # Ensure only required parameters are processed
   def order_params

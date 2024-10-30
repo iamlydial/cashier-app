@@ -10,12 +10,21 @@ const cartSlice = createSlice({
     addItem(state, action) {
       const product = action.payload;
       const existingProduct = state.items.find(item => item.id === product.id);
+    
       if (existingProduct) {
-        existingProduct.quantity += 1;
+        // If the existing product is Green Tea, add 2 to the quantity
+        if (existingProduct.id === 4) {
+          existingProduct.quantity += 2; // Always add 2 for Green Tea
+        } else {
+          existingProduct.quantity += 1; // Add 1 for other products
+        }
       } else {
-        state.items.push({ ...product, quantity: 1 });
+        // For Green Tea, set initial quantity to 2; for other products, set to 1
+        const initialQuantity = product.id === 4 ? 2 : 1;
+        state.items.push({ ...product, quantity: initialQuantity });
       }
     },
+    
     removeItem(state, action) {
       const product = action.payload;
       const existingProduct = state.items.find(item => item.id === product.id);
